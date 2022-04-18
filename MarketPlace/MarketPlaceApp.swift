@@ -1,14 +1,12 @@
-//
-//  MarketPlaceApp.swift
-//  MarketPlace
-//
-//  Created by Vadim on 18.04.22.
-//
-
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 @main
 struct MarketPlaceApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
