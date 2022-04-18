@@ -9,5 +9,6 @@ struct ShopStruct: Identifiable {
     var phone: String
     var itn: String
     var contactName: String
+    
 }
 
