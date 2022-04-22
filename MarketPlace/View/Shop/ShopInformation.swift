@@ -12,7 +12,7 @@ struct ShopInformation: View {
                 ScrollView {
                     Text("Registration form for sellers")
                         .font(.largeTitle)
-                        .padding(.vertical, 50)
+                        .padding(.vertical, 20)
                     ZStack {
                         VStack {
                             VStack(alignment: .leading) {
@@ -84,11 +84,11 @@ struct ShopInformation: View {
                             HStack(alignment: .center) {
                                 Button {
                                     shop.addData(shopName: shop.nameShop,
-                                            email: shop.email,
-                                            country: shop.country,
-                                            phone: shop.phone,
-                                            itn: shop.itn,
-                                            contactName: shop.contactName)
+                                                 email: shop.email,
+                                                 country: shop.country,
+                                                 phone: shop.phone,
+                                                 itn: shop.itn,
+                                                 contactName: shop.contactName)
                                 } label: {
                                     Text("Save")
                                         .foregroundColor(.white)
