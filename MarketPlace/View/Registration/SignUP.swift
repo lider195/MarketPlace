@@ -46,7 +46,7 @@ struct SignUP: View {
                         Button {
                             signUP.secure.toggle()
                         } label: {
-                            Image(systemName: "eye.slash.fill")
+                            Image(systemName: signUP.secure ? "eye.slash.fill" : "eye.fill")
                                 .foregroundColor(Color.gray)
                         }
                         if signUP.secure {
@@ -65,7 +65,7 @@ struct SignUP: View {
                         Button {
                             signUP.secureConfirm.toggle()
                         } label: {
-                            Image(systemName: "eye.slash.fill")
+                            Image(systemName: signUP.secureConfirm ? "eye.slash.fill" : "eye.fill")
                                 .foregroundColor(Color.gray)
                         }
                         if signUP.secureConfirm {
