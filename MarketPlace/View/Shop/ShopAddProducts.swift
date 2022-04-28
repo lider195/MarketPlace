@@ -101,7 +101,7 @@ struct ShopAddProducts: View {
                 }
                 Section {
                     Button {
-                        product.uploadImage()
+                        product.saveProduct()
 //                        product.thing = ""
 //                        product.category = ""
 //                        product.countryOfOrigin = ""

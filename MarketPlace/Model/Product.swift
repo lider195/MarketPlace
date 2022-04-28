@@ -13,5 +13,5 @@ struct Product: Identifiable {
     var setCost: String
     var currency: String
     var image: UIImage?
-    
+    var images = [UIImage]()
 }

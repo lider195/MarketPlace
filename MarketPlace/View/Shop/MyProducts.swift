@@ -2,20 +2,57 @@ import SwiftUI
 
 struct MyProducts: View {
     @ObservedObject var myProduct = ProductViewModel()
+    
+    
+    
     var body: some View {
+        ScrollView {
+            HStack {
+                VStack{
+                ForEach(myProduct.product) { products in
+                    Text(products.thing)
+                    Text(products.category)
+                    Text(products.countryOfOrigin)
+                    Text(products.floor)
+                    Text(products.addDescription)
+                    Text(products.setCost)
+                    Text(products.currency)
+                    
+//                    Image(uiImage: products.image ?? UIImage(systemName: "plus")!)
+//                        .resizable()
+//                        .frame(width: 100, height: 100)
+                    
+                }
+                }
+                    VStack{
+                    ForEach(myProduct.imagess, id: \.self) { img in
+                        Image(uiImage: img)
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                    }
+                    }
+                
 
-        List(myProduct.product) { products in
-            VStack {
-                Text(products.thing)
-                Text(products.category)
-                Text(products.countryOfOrigin)
-                Text(products.floor)
-                Text(products.addDescription)
-                Text(products.setCost)
-                Text(products.currency)
-                Image(uiImage: products.image ?? UIImage(systemName: "plus")! )
-                
-                
+               
+//                List(myProduct,id:\.self) { products in
+                ////                    Text(products.thing)
+                ////                    Text(products.category)
+                ////                    Text(products.countryOfOrigin)
+                ////                    Text(products.floor)
+                ////                    Text(products.addDescription)
+                ////                    Text(products.setCost)
+                ////                    Text(products.currency)
+//
+//
+//                }
+//        List(myProduct.product) { products in
+//            HStack{
+//            VStack {
+//
+//                Image(uiImage: products.image ?? UIImage(systemName: "plus")!)
+//            }
+//            }
+//        }
 //                var thing: String
 //                var category: String
 //                var countryOfOrigin: String
@@ -24,12 +61,15 @@ struct MyProducts: View {
 //                var setCost: String
 //                var currency: String
 //                var image: UIImage?
-                
+
+                //      }
             }
-        }.onAppear{
-            myProduct.retrieveImage()
+            .onAppear {
+                myProduct.retrieveImage()
+            }
         }
     }
+
     init() {
         myProduct.getData()
     }

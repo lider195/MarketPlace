@@ -32,7 +32,7 @@ final class ProductViewModel: ObservableObject {
     @Published var productImage: UIImage?
     @Published var imagess = [UIImage]()
 
-    func uploadImage() {
+    func saveProduct() {
         guard productImage != nil else {
             return
         }
@@ -74,13 +74,13 @@ final class ProductViewModel: ObservableObject {
 
     func retrieveImage() {
         let db = Firestore.firestore()
-        var paths = [String]()
-
-        db.collection("images").getDocuments { snapshots, error in
+        db.collection("ProductInformation").getDocuments { snapshots, error in
             if error == nil, snapshots != nil {
+                var paths = [String]()
+                
                 for doc in snapshots!.documents {
 
-                    paths.append(doc["url"] as! String)
+                    paths.append(doc["image"] as! String)
                 }
 
                 for path in paths {
@@ -92,7 +92,7 @@ final class ProductViewModel: ObservableObject {
                             if let image = UIImage(data: data!) {
 
                                 DispatchQueue.main.async {
-                                    self.productImage = image
+                                    self.imagess.append(image) 
                                 }
                             }
                         }
@@ -120,7 +120,9 @@ final class ProductViewModel: ObservableObject {
                                     floor: d["floor"] as? String ?? "floor",
                                     addDescription: d["addDescription"] as? String ?? "addDescription",
                                     setCost: d["setCost"] as? String ?? "setCost",
-                                    currency: d["currency"] as? String ?? "currency", image: self.productImage )
+                                    currency: d["currency"] as? String ?? "currency",
+                                    image: d["image"] as? UIImage ?? UIImage(systemName: "plus")
+                            )
                         }
                     }
                 }
