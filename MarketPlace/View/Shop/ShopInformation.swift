@@ -15,58 +15,20 @@ struct ShopInformation: View {
                         .padding(.vertical, 20)
                     ZStack {
                         VStack {
-                            VStack(alignment: .leading) {
-                                Text("Country*")
-                                    .offset(x: 5, y: 13)
-                                TextField("Ukraine", text: $shop.country)
-                                    .textFieldStyle(.roundedBorder)
-                                    .opacity(0.8)
-                                Divider()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Individual taxpayer number*")
-                                    .offset(x: 5, y: 13)
-                                TextField("123456", text: $shop.itn)
-                                    .textFieldStyle(.roundedBorder)
-                                    .keyboardType(.numberPad)
-                                    .opacity(0.8)
-                                Divider()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Shop Name*")
-                                    .offset(x: 5, y: 13)
-                                TextField("Not War", text: $shop.nameShop)
-                                    .textFieldStyle(.roundedBorder)
-                                    .opacity(0.8)
-                                Divider()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Contact Name")
-                                    .offset(x: 5, y: 13)
-                                TextField("Vladimir", text: $shop.contactName)
-                                    .textFieldStyle(.roundedBorder)
-                                    .opacity(0.8)
-                                    .keyboardType(.namePhonePad)
-                                Divider()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Number Phone")
-                                    .offset(x: 5, y: 13)
-                                TextField("", text: $shop.phone)
-                                    .textFieldStyle(.roundedBorder)
-                                    .opacity(0.8)
-                                    .keyboardType(.phonePad)
-                                Divider()
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Email adres*")
-                                    .offset(x: 5, y: 13)
-                                TextField("support@example.com", text: $shop.email)
-                                    .textFieldStyle(.roundedBorder)
-                                    .opacity(0.8)
-                                    .keyboardType(.emailAddress)
-                                Divider()
-                            }
+                            TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine",proverkaText: shop.country)
+                                
+                            TextFieldsView(shop: $shop.itn, text: "Itn*", placeholder: "123456",proverkaText: shop.itn)
+                                .keyboardType(.numberPad)
+                               
+                            
+                            TextFieldsView(shop: $shop.nameShop, text: "Shop Name*", placeholder: "Not War",proverkaText: shop.nameShop)
+
+                            TextFieldsView(shop: $shop.contactName, text: "Contact Name", placeholder: "Vladimir",proverkaText: shop.contactName)
+                                .keyboardType(.namePhonePad)
+                            TextFieldsView(shop: $shop.phone, text: "Number Phone", placeholder: "+375298308218",proverkaText: shop.phone)
+                                .keyboardType(.phonePad)
+                            TextFieldsView(shop: $shop.email, text: "Email adres*", placeholder: "support@example.com",proverkaText: shop.email)
+
                             HStack {
                                 Text(" I agree to the processing \n of personal data ")
                                     .foregroundColor(.gray)
