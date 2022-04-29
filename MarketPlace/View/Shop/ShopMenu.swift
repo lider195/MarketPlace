@@ -144,7 +144,7 @@ struct ShopMenu: View {
                             .frame(width: self.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
                     }
-                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Shop Informations" : "Orders")))
+                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Registration form for sellers" : "Orders")))
                         .foregroundColor(Color.black.opacity(0.6))
 
                         .font(.title)
