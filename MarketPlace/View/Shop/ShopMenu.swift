@@ -144,13 +144,13 @@ struct ShopMenu: View {
                             .frame(width: self.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
                     }
-                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Shop Informations" : "Orders")))
+                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Registration form for sellers" : "Orders")))
                         .foregroundColor(Color.black.opacity(0.6))
 
                         .font(.title)
                     Spacer(minLength: 0)
                 }
-                .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+                .padding(.top, 30 )//UIApplication.shared.windows.first?.safeAreaInsets.top)
                 .padding()
 
                 GeometryReader { _ in
@@ -169,7 +169,7 @@ struct ShopMenu: View {
             }
             .background(Color.white)
             .cornerRadius(show ? 30 : 0)
-            .scaleEffect(show ? 0.9 : 1)
+            .scaleEffect(show ? 0.85 : 1)
             .offset(x: show ? UIScreen.main.bounds.width / 2 : 0, y: show ? 15 : 0)
             .rotationEffect(.init(degrees: show ? -5 : 0))
         }

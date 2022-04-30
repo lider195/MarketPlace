@@ -10,9 +10,9 @@ struct ShopInformation: View {
                 .ignoresSafeArea()
             VStack {
                 ScrollView {
-                    Text("Registration form for sellers")
-                        .font(.largeTitle)
-                        .padding(.vertical, 20)
+//                    Text("Registration form for sellers")
+//                        .font(.largeTitle)
+//                        .padding(.vertical, 20)
                     ZStack {
                         VStack {
                             TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine",proverkaText: shop.country)
@@ -70,7 +70,9 @@ struct ShopInformation: View {
                                 .disabled(!shop.isValid)
                             }
                         }
-                    }.onAppear {
+                    }
+                    .padding(.top,100)
+                    .onAppear {
 
                         shop.isValide
                             .receive(on: RunLoop.main)

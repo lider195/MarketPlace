@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD31696D281B3E0200042524 /* TextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD31696C281B3E0100042524 /* TextFieldsView.swift */; };
+		DD77CA64281C7DCE00CCBB86 /* CellMyProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD77CA63281C7DCE00CCBB86 /* CellMyProduct.swift */; };
 		DD89A95D2811EDA100FFE7EF /* ShopAddProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89A95C2811EDA100FFE7EF /* ShopAddProducts.swift */; };
 		DD89A95F2812E8FB00FFE7EF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89A95E2812E8FB00FFE7EF /* ImagePicker.swift */; };
 		DD89A962281337E200FFE7EF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89A961281337E100FFE7EF /* Product.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		DD31696C281B3E0100042524 /* TextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsView.swift; sourceTree = "<group>"; };
+		DD77CA63281C7DCE00CCBB86 /* CellMyProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMyProduct.swift; sourceTree = "<group>"; };
 		DD89A95C2811EDA100FFE7EF /* ShopAddProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAddProducts.swift; sourceTree = "<group>"; };
 		DD89A95E2812E8FB00FFE7EF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DD89A9602812F8DC00FFE7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DD89A95C2811EDA100FFE7EF /* ShopAddProducts.swift */,
 				DD89A96528133D9900FFE7EF /* MyProducts.swift */,
 				DD31696C281B3E0100042524 /* TextFieldsView.swift */,
+				DD77CA63281C7DCE00CCBB86 /* CellMyProduct.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				DDBE758D280E08E100A5B883 /* FireBase.swift in Sources */,
 				DDBE7591280E091800A5B883 /* Shop.swift in Sources */,
 				DDBE7535280E047A00A5B883 /* MarketPlaceApp.swift in Sources */,
+				DD77CA64281C7DCE00CCBB86 /* CellMyProduct.swift in Sources */,
 				DDBE758F280E08F800A5B883 /* Registration.swift in Sources */,
 				DDBE7581280E07A500A5B883 /* ShopModel.swift in Sources */,
 				DD89A962281337E200FFE7EF /* Product.swift in Sources */,

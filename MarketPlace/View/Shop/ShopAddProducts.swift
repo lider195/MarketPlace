@@ -102,22 +102,27 @@ struct ShopAddProducts: View {
                 Section {
                     Button {
                         product.saveProduct()
-//                        product.thing = ""
-//                        product.category = ""
-//                        product.countryOfOrigin = ""
-//                        product.floor = ""
-//                        product.addDescription = ""
-//                        product.setCost = ""
-//                        product.currency = ""
+//                        DispatchQueue.main.async {
+//                            product.thing = ""
+//                            product.category = ""
+//                            product.countryOfOrigin = ""
+//                            product.floor = ""
+//                            product.addDescription = ""
+//                            product.setCost = ""
+//                            product.currency = ""
+//                        }
+                        
                     } label: {
                         Text("Save Information")
                     }
                 }
             }
+//            .ignoresSafeArea(edges: .top)
+                .padding(.top,-70)
             .fullScreenCover(isPresented: $product.showImagePicker) {
                 ImagePicker(image: $product.productImage, isShow: $product.showImagePicker, sourceType: sourceType)
             }
-        }.ignoresSafeArea()
+        }
     }
 }
 
