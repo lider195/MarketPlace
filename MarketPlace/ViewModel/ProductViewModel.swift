@@ -36,7 +36,6 @@ final class ProductViewModel: ObservableObject {
         guard productImage != nil else {
             return
         }
-
         let storage = Storage.storage().reference()
 
         let imageData = productImage!.jpegData(compressionQuality: 0.8)
@@ -112,7 +111,7 @@ final class ProductViewModel: ObservableObject {
 
                 for doc in snapshots!.documents {
 
-                    paths.append(doc["image"] as! String)
+                    paths.append(doc["image"] as? String ?? "asd")
                 }
                 
                 if let snapshots = snapshots {

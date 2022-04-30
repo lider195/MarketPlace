@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 final class LogIn: ObservableObject {
-@Published var isLoading = false
+    @Published var isLoading = false
     @Published var alert = false
     @Published var show = false
     @Published var message = ""
@@ -59,4 +59,3 @@ final class LogIn: ObservableObject {
             .eraseToAnyPublisher()
     }
 }
-

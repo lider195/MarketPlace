@@ -10,25 +10,22 @@ struct CellMyProduct: View {
                 VStack(alignment: .leading) {
                     Image(uiImage: product.image ?? UIImage(systemName: "plus")!)
                         .resizable()
-                        .frame(width: 180, height: 180)
+                        .frame(width: 200, height: 200)
                         .cornerRadius(30)
                 }
-                VStack(alignment: .trailing) {
-                    HStack {
-                        Text(product.thing)
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(product.thing)
+                    Spacer()
+                    Text(product.category)
 
-                        Text(product.category)
-                    }
-                    HStack {
-                        Text(product.countryOfOrigin)
-                    }
-                    HStack {
-
-                        Text(product.addDescription)
-                        Text("\(product.setCost)\(product.setCost)")
-                    }
+                    Spacer()
+                    Text(product.countryOfOrigin)
+                    Spacer()
+                    Text("\(product.setCost)\(product.currency)")
+                    Spacer()
                 }
-                .frame(width: 170, height: 180)
+                .frame(width: 150, height: 200)
             }
         }
         .frame(width: 350, height: 200)
@@ -38,13 +35,13 @@ struct CellMyProduct: View {
 struct CellMyProduct_Previews: PreviewProvider {
     static var previews: some View {
         CellMyProduct(product: Product(id: "",
-                                       thing: "",
-                                       category: "",
-                                       countryOfOrigin: "",
-                                       floor: "",
-                                       addDescription: "",
-                                       setCost: "",
-                                       currency: ""))
+                                       thing: "BMW",
+                                       category: "Auto",
+                                       countryOfOrigin: "Germany",
+                                       floor: "Male",
+                                       addDescription: "Best car of germany",
+                                       setCost: "250000",
+                                       currency: "$"))
             .previewLayout(.fixed(width: 350, height: 200))
     }
 }

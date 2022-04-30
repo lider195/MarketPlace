@@ -117,10 +117,12 @@ struct ShopAddProducts: View {
                     }
                 }
             }
+//            .ignoresSafeArea(edges: .top)
+                .padding(.top,-70)
             .fullScreenCover(isPresented: $product.showImagePicker) {
                 ImagePicker(image: $product.productImage, isShow: $product.showImagePicker, sourceType: sourceType)
             }
-        }.ignoresSafeArea()
+        }
     }
 }
 
