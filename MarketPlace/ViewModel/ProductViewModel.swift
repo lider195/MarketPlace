@@ -37,21 +37,20 @@ final class ProductViewModel: ObservableObject {
     @Published var showImagePicker4 = false
 
     
-    @Published var productImage: UIImage?
-//    @Published var productImage2: UIImage?
-//    @Published var productImage3: UIImage?
-//    @Published var productImage4: UIImage?
-//    @Published var productImage5: UIImage?
+    @Published var productImage1: UIImage?
+    @Published var productImage2: UIImage?
+    @Published var productImage3: UIImage?
+    @Published var productImage4: UIImage?
+    @Published var productImage5: UIImage?
     @Published var imagess = [UIImage]()
 
     func saveProduct() {
-        guard productImage != nil else {
+        guard productImage1 != nil else {
             return
         }
-
         let storage = Storage.storage().reference()
 
-        let imageData = productImage!.jpegData(compressionQuality: 0.8)
+        let imageData = productImage1!.jpegData(compressionQuality: 0.8)
 
         guard imageData != nil else {
             return
@@ -76,7 +75,7 @@ final class ProductViewModel: ObservableObject {
                 { error in
                     if error == nil {
                         DispatchQueue.main.async {
-                            self.imagess.append(self.productImage!)
+                            self.imagess.append(self.productImage1!)
                         }
                     }
                 }
@@ -84,64 +83,84 @@ final class ProductViewModel: ObservableObject {
         }
     }
 
-    func retrieveImage() {
-        let db = Firestore.firestore()
-        db.collection("ProductInformation").getDocuments { snapshots, error in
-            if error == nil, snapshots != nil {
-                var paths = [String]()
-                
-                for doc in snapshots!.documents {
+    //    func retrieveImage() {
+    //        let db = Firestore.firestore()
+    //        db.collection("ProductInformation").getDocuments { snapshots, error in
+    //            if error == nil, snapshots != nil {
+    //                var paths = [String]()
+    //
+    //                for doc in snapshots!.documents {
+    //
+    //                    paths.append(doc["image"] as! String)
+    //                }
 
-                    paths.append(doc["image"] as? String ?? "thing" )
-                }
-
-                for path in paths {
-                    let storageRef = Storage.storage().reference()
-                    let fileRef = storageRef.child(path)
-                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                        if error == nil, data != nil {
-
-                            if let image = UIImage(data: data!) {
-
-                                
-                                
-                                DispatchQueue.main.async {
-                                    self.imagess.append(image)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    //                for path in paths {
+    //                    let storageRef = Storage.storage().reference()
+    //                    let fileRef = storageRef.child(path)
+    //                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+    //                        if error == nil, data != nil {
+    //
+    //                            if let image = UIImage(data: data!) {
+    //
+    //                                DispatchQueue.main.async {
+    //                                    self.imagess.append(image)
+    //                                }
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
 
     func getData() {
         let db = Firestore.firestore()
 
-        db.collection("ProductInformation").getDocuments { completion, error in
+        db.collection("ProductInformation").getDocuments { snapshots, error in
 
-            if error == nil {
-                if let completion = completion {
+            if error == nil,snapshots != nil {
+                var paths = [String]()
 
-                    DispatchQueue.main.async {
-                        self.product = completion.documents.map { d in
+                for doc in snapshots!.documents {
 
-                            Product(id: d.documentID,
-                                    thing: d["thing"] as? String ?? "thing",
-                                    category: d["category"] as? String ?? "category",
-                                    countryOfOrigin: d["countryOfOrigin"] as? String ?? "countryOfOrigin",
-                                    floor: d["floor"] as? String ?? "floor",
-                                    addDescription: d["addDescription"] as? String ?? "addDescription",
-                                    setCost: d["setCost"] as? String ?? "setCost",
-                                    currency: d["currency"] as? String ?? "currency",
-                                    image1: d["image"] as? UIImage ?? UIImage(systemName: "plus")
-                            )
+                    paths.append(doc["image"] as? String ?? "asd")
+                }
+                
+                if let snapshots = snapshots {
+                    for path in paths {
+                        let storageRef = Storage.storage().reference()
+                        let fileRef = storageRef.child(path)
+                        fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                            if error == nil, data != nil {
+
+                                if let image = UIImage(data: data!) {
+
+                                    DispatchQueue.main.async {
+                                        self.product = snapshots.documents.map { d in
+                                           
+                                            Product(id: d.documentID,
+                                                    thing: d["thing"] as? String ?? "thing",
+                                                    category: d["category"] as? String ?? "category",
+                                                    countryOfOrigin: d["countryOfOrigin"] as? String ?? "countryOfOrigin",
+                                                    floor: d["floor"] as? String ?? "floor",
+                                                    addDescription: d["addDescription"] as? String ?? "addDescription",
+                                                    setCost: d["setCost"] as? String ?? "setCost",
+                                                    currency: d["currency"] as? String ?? "currency",
+                                                    image1: image
+                                            )
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
+                    
+                   
                 }
 
             } else {}
         }
+
     }
 }
+

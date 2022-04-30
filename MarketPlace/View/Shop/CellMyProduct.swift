@@ -8,7 +8,7 @@ struct CellMyProduct: View {
         ZStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Image(uiImage: product.image ?? UIImage(systemName: "plus")!)
+                    Image(uiImage: product.image1 ?? UIImage(systemName: "plus")!)
                         .resizable()
                         .frame(width: 200, height: 200)
                         .cornerRadius(30)
