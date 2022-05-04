@@ -84,6 +84,8 @@ struct Login: View {
                         UserDefaults.standard.set(true, forKey: "status")
                         NotificationCenter.default
                             .post(name: NSNotification.Name("statusChange"), object: nil)
+                        UserDefaults.standard.set(login.email, forKey: "1")
+
                     }
                 }
             } label: {

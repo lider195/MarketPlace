@@ -89,7 +89,7 @@ struct ShopMenu: View {
                             Image("orders")
                                 .foregroundColor(index == 3 ? Color("Color1") : .white)
 
-                            Text("Orders")
+                            Text("Products")
                                 .foregroundColor(index == 3 ? Color("Color1") : .white)
 
                         }.padding(.vertical, 10)
@@ -144,7 +144,7 @@ struct ShopMenu: View {
                             .frame(width: self.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
                     }
-                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Registration form for sellers" : "Orders")))
+                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Registration form for sellers" : "Products")))
                         .foregroundColor(Color.black.opacity(0.6))
 
                         .font(.title)
@@ -162,7 +162,7 @@ struct ShopMenu: View {
                         } else if index == 2 {
                             ShopInformation()
                         } else {
-                            orders()
+                            AllProducts()
                         }
                     }
                 }

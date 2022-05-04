@@ -14,6 +14,7 @@ struct CellMyProduct: View {
                         .cornerRadius(30)
                 }
                 VStack(alignment: .leading) {
+                    
                     Spacer()
                     Text(product.thing)
                     Spacer()

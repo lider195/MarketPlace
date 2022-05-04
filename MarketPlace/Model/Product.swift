@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 
 struct Product: Identifiable {
-    var id: String
+    var id = UUID().uuidString
 
     var thing: String
     var category: String

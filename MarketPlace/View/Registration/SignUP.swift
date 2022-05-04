@@ -122,6 +122,8 @@ struct SignUP: View {
                         UserDefaults.standard.set(true, forKey: "status")
                         show.toggle()
                         NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                        UserDefaults.standard.set(signUP.email, forKey: "1")
+
                     }
                 }
             } label: {
@@ -153,6 +155,7 @@ struct SignUP: View {
                 .receive(on: RunLoop.main)
                 .assign(to: \.signUP.isValid, on: self)
                 .store(in: &signUP.cancellable)
+
         }
     }
 }

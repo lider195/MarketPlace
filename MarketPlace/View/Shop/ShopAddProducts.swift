@@ -104,7 +104,10 @@ struct ShopAddProducts: View {
                             .opacity(0.5)
                         TextEditor(text: $product.addDescription)
                             .frame(minHeight: 30, maxHeight: 150)
-                            .border(.gray)
+                            .overlay(
+                                   RoundedRectangle(cornerRadius: 10)
+                                       .stroke(Color.gray, lineWidth: 4)
+                               )
                     }
                     .padding(.horizontal, 30)
                     ZStack {
@@ -121,6 +124,7 @@ struct ShopAddProducts: View {
 
                     Button {
                         product.saveProduct()
+                        product.saveAllProduct()
                         //                        product.thing = ""
                         //                        product.category = ""
                         //                        product.countryOfOrigin = ""
