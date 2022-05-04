@@ -15,19 +15,18 @@ struct ShopInformation: View {
 //                        .padding(.vertical, 20)
                     ZStack {
                         VStack {
-                            TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine",proverkaText: shop.country)
-                                
-                            TextFieldsView(shop: $shop.itn, text: "Itn*", placeholder: "123456",proverkaText: shop.itn)
-                                .keyboardType(.numberPad)
-                               
-                            
-                            TextFieldsView(shop: $shop.nameShop, text: "Shop Name*", placeholder: "Not War",proverkaText: shop.nameShop)
+                            TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine", proverkaText: shop.country)
 
-                            TextFieldsView(shop: $shop.contactName, text: "Contact Name", placeholder: "Vladimir",proverkaText: shop.contactName)
+                            TextFieldsView(shop: $shop.itn, text: "Itn*", placeholder: "123456", proverkaText: shop.itn)
+                                .keyboardType(.numberPad)
+
+                            TextFieldsView(shop: $shop.nameShop, text: "Shop Name*", placeholder: "Not War", proverkaText: shop.nameShop)
+
+                            TextFieldsView(shop: $shop.contactName, text: "Contact Name", placeholder: "Vladimir", proverkaText: shop.contactName)
                                 .keyboardType(.namePhonePad)
-                            TextFieldsView(shop: $shop.phone, text: "Number Phone", placeholder: "+375298308218",proverkaText: shop.phone)
+                            TextFieldsView(shop: $shop.phone, text: "Number Phone", placeholder: "+375298308218", proverkaText: shop.phone)
                                 .keyboardType(.phonePad)
-                            TextFieldsView(shop: $shop.email, text: "Email adres*", placeholder: "support@example.com",proverkaText: shop.email)
+                            TextFieldsView(shop: $shop.email, text: "Email adres*", placeholder: "support@example.com", proverkaText: shop.email)
 
                             HStack {
                                 Text(" I agree to the processing \n of personal data ")
@@ -71,17 +70,18 @@ struct ShopInformation: View {
                             }
                         }
                     }
-                    .padding(.top,100)
-                    .onAppear {
+                    .padding(.top, 80)
+                    .padding(.bottom, 50)
 
-                        shop.isValide
-                            .receive(on: RunLoop.main)
-                            .assign(to: \.shop.isValid, on: self)
-                            .store(in: &shop.cancellable)
-                    }
                     .padding(.horizontal, 20)
                 }
             }
+        }
+        .onAppear {
+            shop.isFormValid
+                .receive(on: RunLoop.main)
+                .assign(to: \.shop.isValid, on: self)
+                .store(in: &shop.cancellable)
         }
     }
 

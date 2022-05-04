@@ -9,7 +9,7 @@ final class Shop: ObservableObject {
     @Published var nameShop = ""
     @Published var email = ""
     @Published var country = ""
-    var phone = ""
+    @Published var phone = ""
     @Published var itn = ""
     @Published var contactName = ""
     @Published var term = false
@@ -41,12 +41,14 @@ final class Shop: ObservableObject {
             .eraseToAnyPublisher()
     }
 
-    var isValide: AnyPublisher<Bool, Never> {
+    var isFormValid: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest4(isNameShopPublisher, isEmailValidPublisher, isITNValidPublisher, $term)
             .map { $0.0 && $0.1 && $0.2 && $0.3 }
             .eraseToAnyPublisher()
     }
 
+    
+    
     func addData(shopName: String,
                  email: String,
                  country: String,
