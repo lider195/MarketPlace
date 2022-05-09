@@ -4,22 +4,17 @@ struct TextFieldsView: View {
     var shop: Binding<String>
     var text = ""
     var placeholder = ""
-    var proverkaText = ""
+    var checkText = ""
     var body: some View {
         VStack(alignment: .leading) {
-//            Text(text)
-//                .offset(x: 5, y: 13)
-//            TextField(placeholder, text: shop)
-//                .textFieldStyle(.roundedBorder)
-//                .opacity(0.8)
-//            Divider()
             VStack {
             ZStack(alignment: .trailing) {
                 Text(text)
-                    .foregroundColor(proverkaText.isEmpty ? Color.red : Color.green)
+                    .font(Font(uiFont: .manrope(16, .light)))
+                    .foregroundColor(checkText.isEmpty ? Color.red : Color.green)
                     .opacity(1)
-                    .offset(y: proverkaText.isEmpty ? 0 : -14)
-                    .rotationEffect(.degrees(proverkaText.isEmpty ? 0 : 2 ))
+                    .offset(y: checkText.isEmpty ? 0 : -14)
+                    .rotationEffect(.degrees(checkText.isEmpty ? 0 : 2 ))
                     .animation(.easeInOut(duration:2))
                 Spacer()
 
@@ -27,7 +22,7 @@ struct TextFieldsView: View {
                     TextField(placeholder, text: shop)
                         .disableAutocorrection(true)
                     Divider()
-                        .background(proverkaText.isEmpty ? Color.red : Color.green)
+                        .background(checkText.isEmpty ? Color.red : Color.green)
                         .animation(.linear(duration: 1))
                         .offset(y: 13)
                 }
@@ -47,6 +42,6 @@ struct TextFieldsView: View {
 
 struct TextFieldsView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldsView(shop: Binding<String>.constant("prodd"), text: "Proverka", placeholder: "", proverkaText: "")
+        TextFieldsView(shop: Binding<String>.constant("prodd"), text: "Proverka", placeholder: "", checkText: "")
     }
 }

@@ -6,19 +6,18 @@ import Foundation
 final class Shop: ObservableObject {
     @Published var shop = [ShopStruct]()
 
-    @Published var nameShop = ""
+    @Published var name = ""
+    @Published var surName = ""
+    @Published var phoneNumber = ""
     @Published var email = ""
     @Published var country = ""
-    @Published var phone = ""
-    @Published var itn = ""
-    @Published var contactName = ""
     @Published var term = false
     @Published var isValid = false
 
     var cancellable: Set<AnyCancellable> = []
 
     private var isNameShopPublisher: AnyPublisher<Bool, Never> {
-        $nameShop
+        $name
             .map {
                 $0.count > 3
             }
@@ -34,9 +33,9 @@ final class Shop: ObservableObject {
     }
 
     private var isITNValidPublisher: AnyPublisher<Bool, Never> {
-        $itn
+        $phoneNumber
             .map {
-                $0.count > 4
+                $0.count > 7
             }
             .eraseToAnyPublisher()
     }
@@ -49,20 +48,18 @@ final class Shop: ObservableObject {
 
     
     
-    func addData(shopName: String,
+    func addData(name: String,
+                 surName: String,
+                 phoneNumber: String,
                  email: String,
-                 country: String,
-                 phone: String,
-                 itn: String,
-                 contactName: String)
+                 country: String)
     {
         let db = Firestore.firestore()
-        db.collection("Shop").addDocument(data: ["shopName": shopName,
+        db.collection("Shop").addDocument(data: ["name": name,
+                                                 "surName": surName,
+                                                 "phoneNumber": phoneNumber,
                                                  "email": email,
-                                                 "country": country,
-                                                 "phone": phone,
-                                                 "itn": itn,
-                                                 "contactName": contactName])
+                                                 "country": country])
         { error in
             if error == nil {
                 self.getData()
@@ -82,12 +79,12 @@ final class Shop: ObservableObject {
                         self.shop = completion.documents.map { d in
 
                             ShopStruct(id: d.documentID,
-                                       shopName: d["shopName"] as? String ?? "dfsd",
+                                       name: d["name"] as? String ?? "",
+                                       surName: d["surName"] as? String ?? "",
+                                       phoneNumber: d["phoneNumber"] as? String ?? "",
                                        email: d["email"] as? String ?? "",
-                                       country: d["country"] as? String ?? "",
-                                       phone: d["phone"] as? String ?? "",
-                                       itn: d["itn"] as? String ?? "",
-                                       contactName: d["contactName"] as? String ?? "")
+                                       country: d["country"] as? String ?? ""
+                                       )
                         }
                     }
                 }

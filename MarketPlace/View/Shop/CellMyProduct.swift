@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CellMyProduct: View {
     var product: Product
-
+    var viewModel:ProductViewModel
     var body: some View {
 
         ZStack {
@@ -14,7 +14,13 @@ struct CellMyProduct: View {
                         .cornerRadius(30)
                 }
                 VStack(alignment: .leading) {
-                    
+                    Button(action: {
+                        viewModel.deleteData(productToDelete: product)
+                    }, label: {
+                        Image(systemName: "minus.circle")
+                    })
+                    .buttonStyle(BorderlessButtonStyle())
+
                     Spacer()
                     Text(product.thing)
                     Spacer()
@@ -39,10 +45,10 @@ struct CellMyProduct_Previews: PreviewProvider {
                                        thing: "BMW",
                                        category: "Auto",
                                        countryOfOrigin: "Germany",
-                                       floor: "Male",
+                                       gender: "Male",
                                        addDescription: "Best car of germany",
                                        setCost: "250000",
-                                       currency: "$"))
+                                       currency: "$", numberPhone: "+375298308218"), viewModel: ProductViewModel())
             .previewLayout(.fixed(width: 350, height: 200))
     }
 }

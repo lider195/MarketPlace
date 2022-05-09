@@ -3,9 +3,7 @@ import SwiftUI
 struct ShopInformation: View {
     @ObservedObject var shop = Shop()
 
-    var body: some View {
-
-        ScrollView(.vertical) {
+    var body: some View {     
             ZStack {
                 Image("fon")
                     .resizable()
@@ -15,22 +13,20 @@ struct ShopInformation: View {
                     ScrollView {
                         ZStack {
                             VStack {
-                                TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine", proverkaText: shop.country)
-
-                                TextFieldsView(shop: $shop.itn, text: "Itn*", placeholder: "123456", proverkaText: shop.itn)
-                                    .keyboardType(.numberPad)
-                                TextFieldsView(shop: $shop.nameShop, text: "Shop Name*", placeholder: "Not War", proverkaText: shop.nameShop)
-
-                                TextFieldsView(shop: $shop.contactName, text: "Contact Name", placeholder: "Vladimir", proverkaText: shop.contactName)
-                                    .keyboardType(.namePhonePad)
-                                TextFieldsView(shop: $shop.phone, text: "Number Phone", placeholder: "+375298308218", proverkaText: shop.phone)
+                                TextFieldsView(shop: $shop.name, text: "Name*", placeholder: "Ivan", checkText: shop.name)
+                                    .autocapitalization(.none)
+                                TextFieldsView(shop: $shop.surName, text: "Sur name", placeholder: "Ivanov", checkText: shop.surName)
+                                    .autocapitalization(.none)
+                                TextFieldsView(shop: $shop.phoneNumber, text: "Number Phone", placeholder: "+375298308218", checkText: shop.phoneNumber)
                                     .keyboardType(.phonePad)
-                                TextFieldsView(shop: $shop.email, text: "Email adres*", placeholder: "support@example.com", proverkaText: shop.email)
-
+                                TextFieldsView(shop: $shop.email, text: "Email adress*", placeholder: "support@example.com", checkText: shop.email)
+                                    .autocapitalization(.none)
+                                    .keyboardType(.emailAddress)
+                                TextFieldsView(shop: $shop.country, text: "Country*", placeholder: "Ukraine", checkText: shop.country)
                                 HStack {
                                     Text(" I agree to the processing \n of personal data ")
                                         .foregroundColor(.gray)
-                                        .font(Font.system(size: 14))
+                                        .font(Font(uiFont: .manrope(16, .light)))
                                         .lineLimit(2)
                                     Spacer()
                                     Button {
@@ -43,16 +39,18 @@ struct ShopInformation: View {
 
                                 HStack(alignment: .center) {
                                     Button {
-                                        shop.addData(shopName: shop.nameShop,
+                                        UserDefaults.standard.set(shop.name, forKey: "name")
+                                        UserDefaults.standard.set(shop.phoneNumber, forKey: "numberPhone")
+
+                                        shop.addData(name: shop.name,
+                                                     surName: shop.surName,
+                                                     phoneNumber: shop.phoneNumber,
                                                      email: shop.email,
-                                                     country: shop.country,
-                                                     phone: shop.phone,
-                                                     itn: shop.itn,
-                                                     contactName: shop.contactName)
+                                                     country: shop.country)
                                     } label: {
                                         Text("Save")
                                             .foregroundColor(.white)
-                                            .fontWeight(.bold)
+                                            .font(Font(uiFont: .manrope(20, .semiBold)))
                                             .padding(.vertical)
                                             .padding(.horizontal, 50)
                                             .background(shop.isValid ? Color(red: 93 / 255,
@@ -82,7 +80,6 @@ struct ShopInformation: View {
                     .assign(to: \.shop.isValid, on: self)
                     .store(in: &shop.cancellable)
             }
-        }
     }
 }
 

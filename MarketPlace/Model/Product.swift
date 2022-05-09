@@ -8,10 +8,11 @@ struct Product: Identifiable {
     var thing: String
     var category: String
     var countryOfOrigin: String
-    var floor: String
+    var gender: String
     var addDescription: String
     var setCost: String
     var currency: String
+    var numberPhone: String
     var image1: UIImage?
     var image2: UIImage?
     var image3: UIImage?

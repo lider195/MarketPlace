@@ -60,6 +60,16 @@
 		DDBE7591280E091800A5B883 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE7590280E091800A5B883 /* Shop.swift */; };
 		DDBE7593280E0AA600A5B883 /* ClipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE7592280E0AA600A5B883 /* ClipShape.swift */; };
 		DDBE75952810525700A5B883 /* ShopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE75942810525500A5B883 /* ShopMenu.swift */; };
+		DDC4B5C22822EFAD00E06405 /* enumFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4B5B92822EFAD00E06405 /* enumFonts.swift */; };
+		DDC4B5C32822EFAD00E06405 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BA2822EFAD00E06405 /* Manrope-ExtraBold.ttf */; };
+		DDC4B5C42822EFAD00E06405 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BB2822EFAD00E06405 /* Manrope-Bold.ttf */; };
+		DDC4B5C52822EFAD00E06405 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BC2822EFAD00E06405 /* Manrope-Regular.ttf */; };
+		DDC4B5C62822EFAD00E06405 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BD2822EFAD00E06405 /* Manrope-ExtraLight.ttf */; };
+		DDC4B5C72822EFAD00E06405 /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BE2822EFAD00E06405 /* Manrope-Light.ttf */; };
+		DDC4B5C82822EFAD00E06405 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5BF2822EFAD00E06405 /* Manrope-SemiBold.ttf */; };
+		DDC4B5C92822EFAD00E06405 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5C02822EFAD00E06405 /* Manrope-Medium.ttf */; };
+		DDC4B5CA2822EFAD00E06405 /* Manrope.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5C12822EFAD00E06405 /* Manrope.ttf */; };
+		DDC4B5CC282812DE00E06405 /* CellAllProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4B5CB282812DE00E06405 /* CellAllProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +100,16 @@
 		DDBE7590280E091800A5B883 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		DDBE7592280E0AA600A5B883 /* ClipShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShape.swift; sourceTree = "<group>"; };
 		DDBE75942810525500A5B883 /* ShopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMenu.swift; sourceTree = "<group>"; };
+		DDC4B5B92822EFAD00E06405 /* enumFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enumFonts.swift; sourceTree = "<group>"; };
+		DDC4B5BA2822EFAD00E06405 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DDC4B5BB2822EFAD00E06405 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		DDC4B5BC2822EFAD00E06405 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		DDC4B5BD2822EFAD00E06405 /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		DDC4B5BE2822EFAD00E06405 /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
+		DDC4B5BF2822EFAD00E06405 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		DDC4B5C02822EFAD00E06405 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		DDC4B5C12822EFAD00E06405 /* Manrope.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Manrope.ttf; sourceTree = "<group>"; };
+		DDC4B5CB282812DE00E06405 /* CellAllProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAllProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +170,7 @@
 		DDBE7533280E047A00A5B883 /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
+				DDC4B5B82822ECF800E06405 /* Font */,
 				DDBE757D280E067200A5B883 /* Model */,
 				DDBE757C280E066800A5B883 /* View */,
 				DDBE757B280E065500A5B883 /* ViewModel */,
@@ -224,8 +245,25 @@
 				DD77CA63281C7DCE00CCBB86 /* CellMyProduct.swift */,
 				DD77CA73281DCE7800CCBB86 /* ViewModifier.swift */,
 				DD77CA942822DB1A00CCBB86 /* AllProducts.swift */,
+				DDC4B5CB282812DE00E06405 /* CellAllProduct.swift */,
 			);
 			path = Shop;
+			sourceTree = "<group>";
+		};
+		DDC4B5B82822ECF800E06405 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DDC4B5B92822EFAD00E06405 /* enumFonts.swift */,
+				DDC4B5BB2822EFAD00E06405 /* Manrope-Bold.ttf */,
+				DDC4B5BA2822EFAD00E06405 /* Manrope-ExtraBold.ttf */,
+				DDC4B5BD2822EFAD00E06405 /* Manrope-ExtraLight.ttf */,
+				DDC4B5BE2822EFAD00E06405 /* Manrope-Light.ttf */,
+				DDC4B5C02822EFAD00E06405 /* Manrope-Medium.ttf */,
+				DDC4B5BC2822EFAD00E06405 /* Manrope-Regular.ttf */,
+				DDC4B5BF2822EFAD00E06405 /* Manrope-SemiBold.ttf */,
+				DDC4B5C12822EFAD00E06405 /* Manrope.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,8 +358,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDBE753C280E047D00A5B883 /* Preview Assets.xcassets in Resources */,
+				DDC4B5C42822EFAD00E06405 /* Manrope-Bold.ttf in Resources */,
+				DDC4B5C52822EFAD00E06405 /* Manrope-Regular.ttf in Resources */,
+				DDC4B5C32822EFAD00E06405 /* Manrope-ExtraBold.ttf in Resources */,
+				DDC4B5C92822EFAD00E06405 /* Manrope-Medium.ttf in Resources */,
+				DDC4B5C82822EFAD00E06405 /* Manrope-SemiBold.ttf in Resources */,
+				DDC4B5C72822EFAD00E06405 /* Manrope-Light.ttf in Resources */,
 				DDBE7539280E047D00A5B883 /* Assets.xcassets in Resources */,
+				DDC4B5C62822EFAD00E06405 /* Manrope-ExtraLight.ttf in Resources */,
 				DDBE757F280E06D300A5B883 /* GoogleService-Info.plist in Resources */,
+				DDC4B5CA2822EFAD00E06405 /* Manrope.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC4B5C22822EFAD00E06405 /* enumFonts.swift in Sources */,
+				DDC4B5CC282812DE00E06405 /* CellAllProduct.swift in Sources */,
 				DD89A9642813387D00FFE7EF /* ProductViewModel.swift in Sources */,
 				DDBE75952810525700A5B883 /* ShopMenu.swift in Sources */,
 				DDBE7537280E047A00A5B883 /* ContentView.swift in Sources */,

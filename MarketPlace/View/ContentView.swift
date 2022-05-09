@@ -4,11 +4,8 @@ struct ContentView: View {
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     @ObservedObject var registration = LogIn()
     var body: some View {
-        // ShopInformation()
         VStack {
             if status {
-                //                CreatedProfile()
-                //ShopInformation()
                 ShopMenu()
                     
             } else {
@@ -24,7 +21,6 @@ struct ContentView: View {
                 self.status = status
             }
         }
-       // .isLoading(registration.isLoading)
     }
 }
 

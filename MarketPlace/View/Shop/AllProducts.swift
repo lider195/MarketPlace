@@ -1,44 +1,23 @@
-//
-//  AllProducts.swift
-//  MarketPlace
-//
-//  Created by Vadim on 4.05.22.
-//
-
 import SwiftUI
 
 struct AllProducts: View {
     @ObservedObject var myProduct = ProductViewModel()
 
     var body: some View {
+       
+             ScrollViewReader { scrollView in
+                 ScrollView {
+                     Button("Scroll to bottom") {
+                         scrollView.scrollTo(99, anchor: .center)
+                     }
 
-        NavigationView {
-
-            List {
-                ForEach(myProduct.product) { products in
-
-                    CellMyProduct(product: products)
-
-//                            Text(products.thing)
-//                            Text(products.category)
-//                            Text(products.countryOfOrigin)
-//                            Text(products.floor)
-//                            Text(products.addDescription)
-//                            Text(products.setCost)
-//                            Text(products.currency)
-//                            Image(uiImage: (products.image ?? UIImage(systemName: "phone"))!)
-//                                .resizable()
-//                                .frame(width: 100, height: 100)
-                }
-            }
-            .padding(.top, -70)
-        }
-        .ignoresSafeArea(edges: .top)
-    }
-
-    init() {
-//        myProduct.getData()
-        myProduct.getAllProductionsData()
+                     ForEach(0..<100) { index in
+                         Text(String(index))
+                             .id(index)
+                     }
+                 }
+             }
+         
     }
 }
 

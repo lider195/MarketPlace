@@ -5,6 +5,7 @@ struct ShopMenu: View {
     @State var index = 0
     @State var show = false
     @State var alert = false
+    @State var name = UserDefaults.standard.string(forKey: "name")
     var body: some View {
         ZStack {
             HStack {
@@ -13,13 +14,13 @@ struct ShopMenu: View {
                         .resizable()
                         .clipShape(Circle())
                         .frame(width: 150, height: 150)
-                    Text("Hello")
-                        .font(.title)
+                    Text("Hello,")
+                        .font(Font(uiFont: .manrope(26, .light)))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding(.top, 10)
-                    Text("Vadim")
-                        .font(.title)
+                    Text(name ?? "")
+                        .font(Font(uiFont: .manrope(30, .semiBold)))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
 
@@ -34,7 +35,8 @@ struct ShopMenu: View {
                             Image("catalogue")
                                 .foregroundColor(index == 0 ? Color("Color1") : .white)
 
-                            Text("My Product")
+                            Text("Product")
+                                .font(Font(uiFont: .manrope(18, .light)))
                                 .foregroundColor(index == 0 ? Color("Color1") : .white)
                         }
                         .padding(.vertical, 10)
@@ -54,6 +56,7 @@ struct ShopMenu: View {
                                 .foregroundColor(index == 1 ? Color("Color1") : .white)
 
                             Text("Add Product")
+                                .font(Font(uiFont: .manrope(18, .light)))
                                 .foregroundColor(index == 1 ? Color("Color1") : .white)
 
                         }.padding(.vertical, 10)
@@ -71,7 +74,8 @@ struct ShopMenu: View {
                             Image("fav")
                                 .foregroundColor(index == 2 ? Color("Color1") : .white)
 
-                            Text("Shop Informations")
+                            Text("Information Profile")
+                                .font(Font(uiFont: .manrope(18, .light)))
                                 .foregroundColor(index == 2 ? Color("Color1") : .white)
 
                         }.padding(.vertical, 10)
@@ -90,6 +94,7 @@ struct ShopMenu: View {
                                 .foregroundColor(index == 3 ? Color("Color1") : .white)
 
                             Text("Products")
+                                .font(Font(uiFont: .manrope(18, .light)))
                                 .foregroundColor(index == 3 ? Color("Color1") : .white)
 
                         }.padding(.vertical, 10)
@@ -108,6 +113,7 @@ struct ShopMenu: View {
                             Image("out")
                                 .foregroundColor(Color.white)
                             Text("Exit")
+                                .font(Font(uiFont: .manrope(20, .bold)))
                                 .foregroundColor(Color.white)
                         }
                         .alert(isPresented: $alert) {
@@ -144,10 +150,10 @@ struct ShopMenu: View {
                             .frame(width: self.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
                     }
-                    Text(index == 0 ? "My Product" : (index == 1 ? "Add Product" : (index == 2 ? "Registration form for sellers" : "Products")))
+                    Text(index == 0 ? "Product" : (index == 1 ? "Add Product" : (index == 2 ? "Profile Information" : "Products")))
                         .foregroundColor(Color.black.opacity(0.6))
 
-                        .font(.title)
+                        .font(Font(uiFont: .manrope(23, .medium)))
                     Spacer(minLength: 0)
                 }
                 .padding(.top, 30 )//UIApplication.shared.windows.first?.safeAreaInsets.top)
