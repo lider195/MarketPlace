@@ -32,16 +32,16 @@ struct ShopMenu: View {
                         }
                     } label: {
                         HStack(spacing: 25) {
-                            Image("catalogue")
-                                .foregroundColor(index == 0 ? Color("Color1") : .white)
+                            Image(systemName: "magazine")
+                                .foregroundColor(index == 0 ? Color.theme.menuButton : .white)
 
                             Text("Product")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 0 ? Color("Color1") : .white)
+                                .foregroundColor(index == 0 ? Color.theme.menuButton : .white)
                         }
                         .padding(.vertical, 10)
                         .padding(.horizontal)
-                        .background(index == 0 ? Color("Color1").opacity(0.2) : .clear)
+                        .background(index == 0 ? Color.theme.menuButton.opacity(0.2) : .clear)
                         .cornerRadius(10)
                     }
                     .padding(.top, 25)
@@ -52,16 +52,16 @@ struct ShopMenu: View {
                         }
                     } label: {
                         HStack(spacing: 25) {
-                            Image("cart")
-                                .foregroundColor(index == 1 ? Color("Color1") : .white)
+                            Image(systemName: "bag")
+                                .foregroundColor(index == 1 ? Color.theme.menuButton : .white)
 
                             Text("Add Product")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 1 ? Color("Color1") : .white)
+                                .foregroundColor(index == 1 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 1 ? Color("Color1").opacity(0.2) : .clear)
+                            .background(index == 1 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
                     Button {
@@ -71,16 +71,16 @@ struct ShopMenu: View {
                         }
                     } label: {
                         HStack(spacing: 25) {
-                            Image("fav")
-                                .foregroundColor(index == 2 ? Color("Color1") : .white)
+                            Image(systemName: "gear")
+                                .foregroundColor(index == 2 ? Color.theme.menuButton : .white)
 
                             Text("Information Profile")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 2 ? Color("Color1") : .white)
+                                .foregroundColor(index == 2 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 2 ? Color("Color1").opacity(0.2) : .clear)
+                            .background(index == 2 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
                     Button {
@@ -90,16 +90,16 @@ struct ShopMenu: View {
                         }
                     } label: {
                         HStack(spacing: 25) {
-                            Image("orders")
-                                .foregroundColor(index == 3 ? Color("Color1") : .white)
+                            Image(systemName: "suit.heart.fill")
+                                .foregroundColor(index == 3 ? Color.theme.menuButton : .white)
 
                             Text("Products")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 3 ? Color("Color1") : .white)
+                                .foregroundColor(index == 3 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 3 ? Color("Color1").opacity(0.2) : .clear)
+                            .background(index == 3 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
                     Divider()
@@ -145,7 +145,7 @@ struct ShopMenu: View {
                             show.toggle()
                         }
                     } label: {
-                        Image(systemName: self.show ? "xmark" : "line.horizontal.3")
+                        Image(systemName: self.show ? "chevron.backward" : "text.alignleft")
                             .resizable()
                             .frame(width: self.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
@@ -166,33 +166,23 @@ struct ShopMenu: View {
                         } else if index == 1 {
                             ShopAddProducts()
                         } else if index == 2 {
-                            ShopInformation()
+                            ShopInformation(shop: Shop())
                         } else {
                             AllProducts()
                         }
                     }
                 }
             }
-            .background(Color.white)
+            .background(Color.theme.background)
             .cornerRadius(show ? 30 : 0)
             .scaleEffect(show ? 0.85 : 1)
             .offset(x: show ? UIScreen.main.bounds.width / 2 : 0, y: show ? 15 : 0)
             .rotationEffect(.init(degrees: show ? -5 : 0))
         }
-        .background(Color("Color")).edgesIgnoringSafeArea(.all)
+        .background(Color.theme.backgroundMenu).edgesIgnoringSafeArea(.all)
         .ignoresSafeArea()
     }
 }
-
-
-struct orders: View {
-    var body: some View {
-        VStack {
-            Text("My Orders")
-        }
-    }
-}
-
 
 struct ShopMenu_Previews: PreviewProvider {
     static var previews: some View {

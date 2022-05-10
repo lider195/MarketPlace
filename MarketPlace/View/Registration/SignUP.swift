@@ -97,9 +97,7 @@ struct SignUP: View {
             }
             .padding()
             .padding(.bottom, 65)
-            .background(Color(red: 244 / 255,
-                              green: 228 / 255,
-                              blue: 205 / 255))
+            .background(Color.theme.backgroundMenu)
             .clipShape(CShape1())
             .contentShape(CShape1())
             .shadow(color: Color.black.opacity(0.3),
@@ -123,7 +121,6 @@ struct SignUP: View {
                         show.toggle()
                         NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
                         UserDefaults.standard.set(signUP.email, forKey: "1")
-
                     }
                 }
             } label: {

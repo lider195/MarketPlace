@@ -28,6 +28,7 @@ struct LoginView: View {
                 Spacer()
             }
         }
+        .background(Color.theme.background)
     }
 }
 

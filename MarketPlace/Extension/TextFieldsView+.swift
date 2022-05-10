@@ -12,7 +12,6 @@ struct TextFieldsView: View {
                 Text(text)
                     .font(Font(uiFont: .manrope(16, .light)))
                     .foregroundColor(checkText.isEmpty ? Color.red : Color.green)
-                    .opacity(1)
                     .offset(y: checkText.isEmpty ? 0 : -14)
                     .rotationEffect(.degrees(checkText.isEmpty ? 0 : 2 ))
                     .animation(.easeInOut(duration:2))
@@ -25,6 +24,7 @@ struct TextFieldsView: View {
                         .background(checkText.isEmpty ? Color.red : Color.green)
                         .animation(.linear(duration: 1))
                         .offset(y: 13)
+                        .opacity(1.5)
                 }
                 .frame(width: 280)
                 .offset(y: 3)

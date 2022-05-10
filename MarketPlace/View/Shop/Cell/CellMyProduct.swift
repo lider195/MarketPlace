@@ -35,6 +35,8 @@ struct CellMyProduct: View {
                 .frame(width: 150, height: 200)
             }
         }
+        .background(Color.theme.cellColor)
+        .cornerRadius(25)
         .frame(width: 350, height: 200)
     }
 }

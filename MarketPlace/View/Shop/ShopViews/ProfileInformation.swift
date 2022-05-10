@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ShopInformation: View {
-    @ObservedObject var shop = Shop()
+    @StateObject var shop: Shop
 
     var body: some View {     
             ZStack {
@@ -74,6 +74,7 @@ struct ShopInformation: View {
                     }
                 }
             }
+            .background(Color.theme.background.opacity(0.5))
             .onAppear {
                 shop.isFormValid
                     .receive(on: RunLoop.main)
@@ -85,6 +86,6 @@ struct ShopInformation: View {
 
 struct ShopInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ShopInformation()
+        ShopInformation(shop: Shop())
     }
 }

@@ -61,9 +61,7 @@ struct Login: View {
             }
             .padding()
             .padding(.bottom, 65)
-            .background(Color(red: 244 / 255,
-                              green: 228 / 255,
-                              blue: 205 / 255))
+            .background(Color.theme.backgroundMenu)
             .clipShape(CShape())
             .contentShape(CShape())
             .shadow(color: Color.black.opacity(0.3),
