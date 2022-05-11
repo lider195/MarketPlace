@@ -13,7 +13,7 @@ struct MyProducts: View {
                 HStack {
                     ScrollView {
                         VStack {
-                            Text("AllProducts")
+                            Text("AllProducts ------>")
                                 .font(Font(uiFont: .manrope(25, .regular)))
                             LazyVGrid(columns: allProduct.columns, alignment: .center, spacing: 1, pinnedViews: .sectionFooters, content: {
                                 ForEach(allProduct.product) { products in
@@ -32,7 +32,7 @@ struct MyProducts: View {
 
                     ScrollView {
                         VStack {
-                            Text("MyProducts")
+                            Text("<------ MyProducts")
                                 .font(Font(uiFont: .manrope(25, .regular)))
                             ScrollView {
                                 ForEach(myProduct.product) { products in
