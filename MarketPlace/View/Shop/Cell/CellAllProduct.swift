@@ -3,7 +3,6 @@ import SwiftUI
 struct CellAllProduct: View {
     var product: Product
     @StateObject var favProduct = ProductViewModel()
-    @State var rotation = 0.0
     var body: some View {
 
         ZStack {
@@ -16,14 +15,14 @@ struct CellAllProduct: View {
                         .cornerRadius(30)
                     Button {
                         favProduct.tog.toggle()
-                        rotation += 360
+                        favProduct.rotation += 360
                     } label: {
                         Image(systemName: favProduct.tog ? "heart" : "heart.fill")
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(favProduct.tog ? .gray : .red)
                             .animation(.easeInOut(duration: 1.5))
-                            .rotationEffect(.degrees(rotation)).animation(.spring(response: 1, dampingFraction: 2, blendDuration: 1))
+                            .rotationEffect(.degrees(favProduct.rotation)).animation(.spring(response: 1, dampingFraction: 2, blendDuration: 1))
                     }
                     .padding()
                 }
@@ -67,16 +66,3 @@ struct CellAllProduct_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 350, height: 200))
     }
 }
-
-//
-//favProduct.product.append(Product(
-//    thing: product.thing,
-//    category: product.category,
-//    countryOfOrigin: product.countryOfOrigin,
-//    gender: product.gender,
-//    addDescription: product.addDescription,
-//    setCost: product.setCost,
-//    currency: product.currency,
-//    numberPhone: product.numberPhone,
-//    image1: product.image1
-//                                                 ))

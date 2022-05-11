@@ -13,31 +13,39 @@ struct CellMyProduct: View {
                         .frame(width: 200, height: 200)
                         .cornerRadius(30)
                 }
-                VStack(alignment: .leading) {
+                .padding()
+                VStack(alignment: .leading,spacing: 20) {
+                    HStack{
+                        Spacer()
                     Button(action: {
                         viewModel.deleteData(productToDelete: product)
                     }, label: {
-                        Image(systemName: "minus.circle")
+                        Image(systemName: "x.circle")
+                            .foregroundColor(.red)
                     })
+                    .scaleEffect(1.4)
                     .buttonStyle(BorderlessButtonStyle())
-
-                    Spacer()
+                    .padding(.trailing,20)
+                }
                     Text(product.thing)
-                    Spacer()
+                        .font(Font(uiFont: .manrope(20, .extraBold)))
                     Text(product.category)
+                        .font(Font(uiFont: .manrope(20, .semiBold)))
+                        .opacity(0.7)
+                        .offset(x: 40, y: -10)
 
-                    Spacer()
                     Text(product.countryOfOrigin)
-                    Spacer()
+                        .font(Font(uiFont: .manrope(20, .semiBold)))
+
                     Text("\(product.setCost)\(product.currency)")
-                    Spacer()
                 }
                 .frame(width: 150, height: 200)
             }
         }
+        .animation(.spring(response: 1, dampingFraction: 2, blendDuration: 1))
         .background(Color.theme.cellColor)
         .cornerRadius(25)
-        .frame(width: 350, height: 200)
+        
     }
 }
 

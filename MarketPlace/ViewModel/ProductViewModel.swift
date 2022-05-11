@@ -25,6 +25,8 @@ final class ProductViewModel: ObservableObject {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+     var rotation = 0.0
+
     
     @Published var thing = ""
     @Published var category = ""
@@ -37,18 +39,10 @@ final class ProductViewModel: ObservableObject {
     @Published var photo = false
     @Published var isValid = false
     @Published var tog = true
-
-    
+  
     @Published var showImagePicker1 = false
-    @Published var showImagePicker2 = false
-    @Published var showImagePicker3 = false
-    @Published var showImagePicker4 = false
-
     @Published var productImage1: UIImage?
-    @Published var productImage2: UIImage?
-    @Published var productImage3: UIImage?
-    @Published var productImage4: UIImage?
-    
+   
     @Published var imagess = [UIImage]()
 
     var shops = UserDefaults.standard.string(forKey: "1")
@@ -247,6 +241,97 @@ final class ProductViewModel: ObservableObject {
             } else {}
         }
     }
+    func saveFavoriteProduct() {
+        guard productImage1 != nil else {
+            return
+        }
+        let storage = Storage.storage().reference()
+
+        guard let imageData = productImage1?.jpegData(compressionQuality: 0.8) else {
+            return
+        }
+
+        guard imageData != nil else {
+            return
+        }
+        let path = "images/\(UUID().uuidString).jpg"
+
+        let fileRef = storage.child(path)
+
+        let uploadTask = fileRef.putData(imageData,
+                                         metadata: nil)
+        { metadata, error in
+            if error == nil, metadata != nil {
+                let db = Firestore.firestore()
+                db.collection( "Favorite").document().setData(["thing": self.thing,
+                                                                                      "category": self.category,
+                                                                                      "countryOfOrigin": self.countryOfOrigin,
+                                                                                      "gender": self.gender,
+                                                                                      "addDescription": self.addDescription,
+                                                                                      "setCost": self.setCost,
+                                                                                      "currency": self.currency,
+                                                                                      "numberPhone": self.numberPhone,
+                                                                                      "image": path])
+                { error in
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            self.imagess.append(self.productImage1!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    func getFavoriteData() {
+        let db = Firestore.firestore()
+//        self.shops ?? "ProductInformation"
+        db.collection("Favorite").getDocuments { snapshots, error in
+
+            if error == nil, snapshots != nil {
+                var paths = [String]()
+
+                for doc in snapshots!.documents {
+
+                    paths.append(doc["image"] as? String ?? "asd")
+                }
+
+                if let snapshots = snapshots {
+                    for path in paths {
+                        let storageRef = Storage.storage().reference()
+                        let fileRef = storageRef.child(path)
+                        fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                            if error == nil, data != nil {
+
+                                if let image = UIImage(data: data!) {
+
+                                    DispatchQueue.main.async {
+                                        self.product = snapshots.documents.map { d in
+
+                                            Product(id: d.documentID,
+                                                    thing: d["thing"] as? String ?? "thing",
+                                                    category: d["category"] as? String ?? "category",
+                                                    countryOfOrigin: d["countryOfOrigin"] as? String ?? "countryOfOrigin",
+                                                    gender: d["gender"] as? String ?? "floor",
+                                                    addDescription: d["addDescription"] as? String ?? "addDescription",
+                                                    setCost: d["setCost"] as? String ?? "setCost",
+                                                    currency: d["currency"] as? String ?? "currency",
+                                                    numberPhone: d["numberPhone"] as? String ?? "+375291234567",
+                                                    image1: image)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            } else {}
+        }
+    }
+
+    
+    
+    
 }
 //func saveFavoriteProduct() {
 //        guard productImage1 != nil else {

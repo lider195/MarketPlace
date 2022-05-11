@@ -3,7 +3,7 @@ import SwiftUI
 struct MyProducts: View {
     @ObservedObject var myProduct = ProductViewModel()
     @ObservedObject var allProduct = ProductViewModel()
-   
+
     var body: some View {
 
         NavigationView {
@@ -36,23 +36,20 @@ struct MyProducts: View {
                                 .font(Font(uiFont: .manrope(25, .regular)))
                             ScrollView {
                                 ForEach(myProduct.product) { products in
-                                    NavigationLink {
-                                        InformationProduct(product: products)
-                                    } label: {
-                                        CellMyProduct(product: products, viewModel: myProduct)
-                                            .padding(.vertical, 20)
-                                            .foregroundColor(Color.black)
-                                            .contextMenu {
-                                                Button {
-                                                    myProduct.deleteData(productToDelete: products)
-                                                } label: {
-                                                    HStack {
-                                                        Image(systemName: "delete.left")
-                                                        Text("Deleted")
-                                                    }
+
+                                    CellMyProduct(product: products, viewModel: myProduct)
+                                        .padding(.vertical, 20)
+                                        .foregroundColor(Color.black)
+                                        .contextMenu {
+                                            Button {
+                                                myProduct.deleteData(productToDelete: products)
+                                            } label: {
+                                                HStack {
+                                                    Image(systemName: "delete.left")
+                                                    Text("Deleted")
                                                 }
                                             }
-                                    }
+                                        }
                                 }
                             }
                         }

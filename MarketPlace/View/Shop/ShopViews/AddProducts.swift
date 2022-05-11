@@ -111,6 +111,7 @@ struct ShopAddProducts: View {
                         Button {
                             product.saveProduct()
                             product.saveAllProduct()
+                            MyProducts()
                             //                        product.thing = ""
                             //                        product.category = ""
                             //                        product.countryOfOrigin = ""

@@ -2,8 +2,7 @@
 import SwiftUI
 
 struct ShopMenu: View {
-    @State var index = 0
-    @State var show = false
+    @ObservedObject var menu = Shop()
     @State var alert = false
     @State var name = UserDefaults.standard.string(forKey: "name")
     var body: some View {
@@ -23,83 +22,89 @@ struct ShopMenu: View {
                         .font(Font(uiFont: .manrope(30, .semiBold)))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-
+                    
+//                    MenuButtonView( numberIndex: 0, imageName: "magazine", nameCategory: "Product")
                     Button {
-                        index = 0
+                        menu.index = 0
 
                         withAnimation {
-                            show.toggle()
+                            menu.show.toggle()
                         }
                     } label: {
                         HStack(spacing: 25) {
                             Image(systemName: "magazine")
-                                .foregroundColor(index == 0 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 0 ? Color.theme.menuButton : .white)
 
                             Text("Product")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 0 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 0 ? Color.theme.menuButton : .white)
                         }
                         .padding(.vertical, 10)
                         .padding(.horizontal)
-                        .background(index == 0 ? Color.theme.menuButton.opacity(0.2) : .clear)
+                        .background(menu.index == 0 ? Color.theme.menuButton.opacity(0.2) : .clear)
                         .cornerRadius(10)
                     }
                     .padding(.top, 25)
+                    
+//                    MenuButtonView( numberIndex: 1, imageName: "bag", nameCategory: "Add Product")
                     Button {
-                        index = 1
+                        menu.index = 1
                         withAnimation {
-                            show.toggle()
+                            menu.show.toggle()
                         }
                     } label: {
                         HStack(spacing: 25) {
                             Image(systemName: "bag")
-                                .foregroundColor(index == 1 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 1 ? Color.theme.menuButton : .white)
 
                             Text("Add Product")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 1 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 1 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 1 ? Color.theme.menuButton.opacity(0.2) : .clear)
+                            .background(menu.index == 1 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
+//                    MenuButtonView( numberIndex: 2, imageName: "gear", nameCategory: "Information Profile")
                     Button {
-                        index = 2
+                        menu.index = 2
                         withAnimation {
-                            show.toggle()
+                            menu.show.toggle()
                         }
                     } label: {
                         HStack(spacing: 25) {
                             Image(systemName: "gear")
-                                .foregroundColor(index == 2 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 2 ? Color.theme.menuButton : .white)
 
                             Text("Information Profile")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 2 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 2 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 2 ? Color.theme.menuButton.opacity(0.2) : .clear)
+                            .background(menu.index == 2 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
+//                    MenuButtonView( numberIndex: 3, imageName: "suit.heart.fill", nameCategory: "Favorite product")
+
                     Button {
-                        index = 3
+                        menu.index = 3
                         withAnimation {
-                            show.toggle()
+                            menu.show.toggle()
                         }
                     } label: {
                         HStack(spacing: 25) {
                             Image(systemName: "suit.heart.fill")
-                                .foregroundColor(index == 3 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 3 ? Color.theme.menuButton : .white)
 
                             Text("Products")
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .foregroundColor(index == 3 ? Color.theme.menuButton : .white)
+                                .foregroundColor(menu.index == 3 ? Color.theme.menuButton : .white)
 
                         }.padding(.vertical, 10)
                             .padding(.horizontal)
-                            .background(index == 3 ? Color.theme.menuButton.opacity(0.2) : .clear)
+                            .background(menu.index == 3 ? Color.theme.menuButton.opacity(0.2) : .clear)
                             .cornerRadius(10)
                     }
                     Divider()
@@ -142,15 +147,15 @@ struct ShopMenu: View {
                 HStack(spacing: 15) {
                     Button {
                         withAnimation {
-                            show.toggle()
+                            menu.show.toggle()
                         }
                     } label: {
-                        Image(systemName: self.show ? "chevron.backward" : "text.alignleft")
+                        Image(systemName: menu.show ? "chevron.backward" : "text.alignleft")
                             .resizable()
-                            .frame(width: self.show ? 18 : 22, height: 18)
+                            .frame(width: menu.show ? 18 : 22, height: 18)
                             .foregroundColor(Color.black.opacity(0.4))
                     }
-                    Text(index == 0 ? "Product" : (index == 1 ? "Add Product" : (index == 2 ? "Profile Information" : "Products")))
+                    Text(menu.index == 0 ? "Product" : (menu.index == 1 ? "Add Product" : (menu.index == 2 ? "Profile Information" : "Products")))
                         .foregroundColor(Color.black.opacity(0.6))
 
                         .font(Font(uiFont: .manrope(23, .medium)))
@@ -161,11 +166,11 @@ struct ShopMenu: View {
 
                 GeometryReader { _ in
                     VStack {
-                        if index == 0 {
+                        if menu.index == 0 {
                             MyProducts()
-                        } else if index == 1 {
+                        } else if menu.index == 1 {
                             ShopAddProducts()
-                        } else if index == 2 {
+                        } else if menu.index == 2 {
                             ShopInformation(shop: Shop())
                         } else {
                             AllProducts()
@@ -174,10 +179,10 @@ struct ShopMenu: View {
                 }
             }
             .background(Color.theme.background)
-            .cornerRadius(show ? 30 : 0)
-            .scaleEffect(show ? 0.85 : 1)
-            .offset(x: show ? UIScreen.main.bounds.width / 2 : 0, y: show ? 15 : 0)
-            .rotationEffect(.init(degrees: show ? -5 : 0))
+            .cornerRadius(menu.show ? 30 : 0)
+            .scaleEffect(menu.show ? 0.85 : 1)
+            .offset(x: menu.show ? UIScreen.main.bounds.width / 2 : 0, y: menu.show ? 15 : 0)
+            .rotationEffect(.init(degrees: menu.show ? -5 : 0))
         }
         .background(Color.theme.backgroundMenu).edgesIgnoringSafeArea(.all)
         .ignoresSafeArea()
