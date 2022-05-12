@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>403384127712-j0h1lcrg6gpeovl6a7d6dfouhfvfua67.apps.googleusercontent.com</string>
+	<string>1065423652294-ah8e70gbm1a0cigh14k3375egror5pac.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.403384127712-j0h1lcrg6gpeovl6a7d6dfouhfvfua67</string>
+	<string>com.googleusercontent.apps.1065423652294-ah8e70gbm1a0cigh14k3375egror5pac</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB5wCPygZY-e27YW1axrp6x_uPKaGvwFsw</string>
+	<string>AIzaSyBgzC6nrvz_LqJk2ruNJLzO_u8Od6HtflI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>403384127712</string>
+	<string>1065423652294</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>-1101.MarketPlace</string>
 	<key>PROJECT_ID</key>
-	<string>marketplaced-9a893</string>
+	<string>marketplace-dcf45</string>
 	<key>STORAGE_BUCKET</key>
-	<string>marketplaced-9a893.appspot.com</string>
+	<string>marketplace-dcf45.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:403384127712:ios:c580b4a2acb7f5ddb90085</string>
+	<string>1:1065423652294:ios:5e2049d1a24250412a5ec7</string>
 </dict>
 </plist>

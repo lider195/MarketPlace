@@ -49,7 +49,6 @@
 		DDBE7576280E063700A5B883 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DDBE7575280E063700A5B883 /* FirebaseStorage */; };
 		DDBE7578280E063700A5B883 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DDBE7577280E063700A5B883 /* FirebaseStorageCombine-Community */; };
 		DDBE757A280E063700A5B883 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = DDBE7579280E063700A5B883 /* FirebaseStorageSwift-Beta */; };
-		DDBE757F280E06D300A5B883 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBE757E280E06D300A5B883 /* GoogleService-Info.plist */; };
 		DDBE7581280E07A500A5B883 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE7580280E07A500A5B883 /* ProfileModel.swift */; };
 		DDBE7584280E083E00A5B883 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE7583280E083E00A5B883 /* Login.swift */; };
 		DDBE7586280E085D00A5B883 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE7585280E085D00A5B883 /* LoginView.swift */; };
@@ -73,6 +72,7 @@
 		DDC4B5CE28292BAC00E06405 /* InformationProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4B5CD28292BAC00E06405 /* InformationProduct.swift */; };
 		DDC4B5D3282A786400E06405 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4B5D2282A786400E06405 /* Color+.swift */; };
 		DDC4B5D6282BFF2900E06405 /* MenuButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4B5D5282BFF2800E06405 /* MenuButton+.swift */; };
+		DDC4B5DE282CEC6400E06405 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDC4B5DD282CEC6400E06405 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +92,6 @@
 		DDBE7536280E047A00A5B883 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DDBE7538280E047D00A5B883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDBE753B280E047D00A5B883 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DDBE757E280E06D300A5B883 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDBE7580280E07A500A5B883 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		DDBE7583280E083E00A5B883 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DDBE7585280E085D00A5B883 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		DDC4B5CD28292BAC00E06405 /* InformationProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationProduct.swift; sourceTree = "<group>"; };
 		DDC4B5D2282A786400E06405 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		DDC4B5D5282BFF2800E06405 /* MenuButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuButton+.swift"; sourceTree = "<group>"; };
+		DDC4B5DD282CEC6400E06405 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +182,8 @@
 				DDBE757B280E065500A5B883 /* ViewModel */,
 				DDBE7534280E047A00A5B883 /* MarketPlaceApp.swift */,
 				DDBE7538280E047D00A5B883 /* Assets.xcassets */,
-				DDBE757E280E06D300A5B883 /* GoogleService-Info.plist */,
 				DD89A9602812F8DC00FFE7EF /* Info.plist */,
+				DDC4B5DD282CEC6400E06405 /* GoogleService-Info.plist */,
 				DDBE753A280E047D00A5B883 /* Preview Content */,
 			);
 			path = MarketPlace;
@@ -398,8 +398,8 @@
 				DDC4B5C82822EFAD00E06405 /* Manrope-SemiBold.ttf in Resources */,
 				DDC4B5C72822EFAD00E06405 /* Manrope-Light.ttf in Resources */,
 				DDBE7539280E047D00A5B883 /* Assets.xcassets in Resources */,
+				DDC4B5DE282CEC6400E06405 /* GoogleService-Info.plist in Resources */,
 				DDC4B5C62822EFAD00E06405 /* Manrope-ExtraLight.ttf in Resources */,
-				DDBE757F280E06D300A5B883 /* GoogleService-Info.plist in Resources */,
 				DDC4B5CA2822EFAD00E06405 /* Manrope.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

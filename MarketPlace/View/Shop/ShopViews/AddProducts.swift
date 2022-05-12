@@ -5,8 +5,9 @@ import UIKit
 
 struct ShopAddProducts: View {
     @State var sourceType: UIImagePickerController.SourceType = .camera
-    @ObservedObject var product = ProductViewModel()
+    @StateObject var product = ProductViewModel()
     @State var number = UserDefaults.standard.string(forKey: "numberPhone")
+    @ObservedObject var shop = Shop()
     var body: some View {
         
         NavigationView {
@@ -84,7 +85,7 @@ struct ShopAddProducts: View {
                             TextEditor(text: $product.addDescription)
                                 .accentColor(Color.red)
                                 .font(Font(uiFont: .manrope(18, .light)))
-                                .frame(height: 80)
+                                .frame(height: 60)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.gray, lineWidth: 4)
@@ -111,14 +112,6 @@ struct ShopAddProducts: View {
                         Button {
                             product.saveProduct()
                             product.saveAllProduct()
-                            MyProducts()
-                            //                        product.thing = ""
-                            //                        product.category = ""
-                            //                        product.countryOfOrigin = ""
-                            //                        product.floor = ""
-                            //                        product.addDescription = ""
-                            //                        product.setCost = ""
-                            //                        product.currency = ""
                         } label: {
 
                             Text("Save product")
@@ -131,6 +124,7 @@ struct ShopAddProducts: View {
                                                                     blue: 72 / 255) : Color.theme.menuButton)
                                 .clipShape(Capsule())
                         }
+                        .padding(.bottom,30)
                     }
                 }
                 .background(Color.theme.background.opacity(0.5))

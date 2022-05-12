@@ -12,6 +12,7 @@ struct CellMyProduct: View {
                         .resizable()
                         .frame(width: 200, height: 200)
                         .cornerRadius(30)
+                        
                 }
                 .padding()
                 VStack(alignment: .leading,spacing: 20) {

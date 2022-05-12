@@ -14,7 +14,7 @@ final class Shop: ObservableObject {
     @Published var term = false
     @Published var isValid = false
 
-    @Published var index = 2
+    @Published var index = 0
     @Published var show = false
 
     var cancellable: Set<AnyCancellable> = []

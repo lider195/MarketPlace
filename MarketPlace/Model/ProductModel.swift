@@ -13,9 +13,7 @@ struct Product: Identifiable {
     var currency: String
     var numberPhone: String
     var image1: UIImage?
-    var image2: UIImage?
-    var image3: UIImage?
-    var image4: UIImage?
-    var image5: UIImage?
+    var image2: String?
+
     var images = [UIImage]()
 }
